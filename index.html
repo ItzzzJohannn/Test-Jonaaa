@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>website er name dite bhuila gesi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fdf6f9;
+            color: #333;
+        }
+        .container {
+            margin-top: 100px;
+            padding: 20px;
+            background: white;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            background: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #ff4757;
+        }
+        .note {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 id="question">website er name dite bhuila gesi</h2>
+        <div id="options">
+            <button onclick="startQuiz()">Start</button>
+        </div>
+        <p class="note" id="note" style="display: none;">Made by your son - Xohan</p>
+    </div>
+
+    <script>
+        let step = -1;
+        function startQuiz() {
+            step = 0;
+            nextQuestion();
+        }
+        
+        function nextQuestion(choice) {
+            let questions = [
+                "Do You Miss Her?",
+                "Which One?",
+                "Don't Lie...",
+                "I know everything about you Jonaaa 😈😈😈",
+                "You miss Mahika-",
+                "Ok fine, kintu sotti ta kokhono chepe thakbe na :3",
+                "okkk byeee"
+            ];
+            let options = [
+                ["Yes", "Yes"],
+                ["Yoko", "Berry", "Mikasa", "Tatami"],
+                ["What do you mean?"],
+                ["???"],
+                ["Shut up"],
+                ["Cdao"],
+                []
+            ];
+            
+            if (step < questions.length) {
+                document.getElementById("question").innerText = questions[step];
+                let buttons = "";
+                options[step].forEach(opt => {
+                    buttons += `<button onclick="nextQuestion()">${opt}</button>`;
+                });
+                document.getElementById("options").innerHTML = buttons;
+                step++;
+            } else {
+                document.getElementById("question").innerText = "okkk byeee";
+                document.getElementById("options").innerHTML = "";
+                document.getElementById("note").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
